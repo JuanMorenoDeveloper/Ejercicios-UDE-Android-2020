@@ -7,7 +7,7 @@ do
   cd $(dirname "${line}");
   pwd
   #adb shell input keyevent 82 # unlock device
-  ./gradlew --no-daemon clean test cC -X :app:connectedDebugAndroidTest
+  ./gradlew --no-daemon clean test cC -x :app:connectedDebugAndroidTest
   if [ $? -eq 0 ]
   then
     echo "tests for ${line} are successful"
