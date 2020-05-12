@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-         command: sudo chmod +x ./run_all_test.sh
+         command: sudo chmod +x run_all_test.sh
       - run:
           name: Run all test
           command: ./run_all_tests.sh
