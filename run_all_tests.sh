@@ -6,7 +6,7 @@ do
   echo "will run tests for ${line}";
   cd $(dirname "${line}");
   pwd
-  if [["${line}" == "./practico02-kotlin-testing/gradlew"]]
+  if ["${line}" == "./practico02-kotlin-testing/gradlew"]
   then
     ./gradlew --no-daemon clean test cC
   else
