@@ -11,7 +11,7 @@ class ConsultarLecturasUnitTest {
         val idExpected = 1
         val tempExpected = 25.4
         val lecturas = arrayListOf(Lectura(idExpected, tempExpected), Lectura(2, 35.3))
-        val consultar = LecturaRepository(lecturas)
+        val consultar:LecturaRepository = DefaultLecturaRepository(lecturas)
 
         val lecturaFound = consultar.findById(1)
 
@@ -23,7 +23,7 @@ class ConsultarLecturasUnitTest {
         val idExpected = 5
         val tempExpected = 25.4
         val lecturas = arrayListOf(Lectura(idExpected, tempExpected), Lectura(2, 35.3))
-        val consultar = LecturaRepository(lecturas)
+        val consultar:LecturaRepository = DefaultLecturaRepository(lecturas)
 
         val lecturaFound = consultar.findById(1)
 
