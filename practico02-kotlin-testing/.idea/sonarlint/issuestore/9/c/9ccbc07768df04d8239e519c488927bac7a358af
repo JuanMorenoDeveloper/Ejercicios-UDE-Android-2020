@@ -1,4 +1,0 @@
-
-kotlin:S100
-"qRename function "givenLecturas_whenFindById_thenFoundLectura" to match the regular expression ^[a-z][a-zA-Z0-9]*$(’ñ†Ñşÿÿÿÿ
-†kotlin:S100"oRename function "givenInvalidId_whenFindById_thenFoundNull" to match the regular expression ^[a-z][a-zA-Z0-9]*$(‡š¤Ÿ
