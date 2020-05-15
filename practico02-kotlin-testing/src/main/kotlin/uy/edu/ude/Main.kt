@@ -4,7 +4,7 @@ import uy.edu.ude.entity.Lectura
 import uy.edu.ude.entity.Lugar
 import uy.edu.ude.external.io.Console
 
-fun main(args: Array<String>) {
+fun main() {
     val lecturas = ArrayList<Lectura>()
     val lugares = ArrayList<Lugar>()
     leerLugares(lugares)
