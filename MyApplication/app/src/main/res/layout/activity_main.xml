@@ -24,13 +24,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nombre"
+        android:hint="Usuario"
         android:inputType="textPersonName"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/btnOk"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHello" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHello"
+        app:layout_constraintVertical_bias="0.19" />
 
     <Button
         android:id="@+id/btnOk"
@@ -43,6 +45,19 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHello"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.632" />
+
+    <EditText
+        android:id="@+id/edPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnOk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edNombre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
