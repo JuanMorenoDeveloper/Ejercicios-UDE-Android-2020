@@ -18,7 +18,7 @@ class LoginInstrumentedTest {
     @get:Rule
     val rule = ActivityTestRule(LoginActivity::class.java)
 
-    @Ignore("Espresso no encuentra campos de tipo password")
+    //@Ignore("Espresso no encuentra campos de tipo password")
     @Test
     fun givenValidUser_whenDoLogin_thenGetOk() {
         onView(withId(R.id.edUsuario)).perform(typeText("user")).perform(closeSoftKeyboard())
