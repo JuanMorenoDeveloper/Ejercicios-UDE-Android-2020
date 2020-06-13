@@ -61,7 +61,7 @@ dependencies {
     testImplementation ('org.robolectric:robolectric:4.3.1') {
         exclude group: 'com.google.auto.service', module: 'auto-service'
     }
-    testImplementation "org.assertj:assertj-core:3.15.0"
+    testImplementation "org.assertj:assertj-core:3.16.1"
     testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     testImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
     testImplementation 'androidx.test:rules:1.2.0'
