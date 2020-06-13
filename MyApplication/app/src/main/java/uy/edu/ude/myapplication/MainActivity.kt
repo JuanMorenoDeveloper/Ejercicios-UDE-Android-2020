@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isValid(nombre: String, password: String): Boolean {
+    fun isValid(nombre: String, password: String): Boolean {
         if (nombre == "user" && password == "pass")
             return true
         return false
