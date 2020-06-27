@@ -2,4 +2,8 @@
     <string name="app_name">My Application</string>
     <string name="btn_ok">Login</string>
     <string name="tv_welcome">Bienvenida</string>
+    <string name="title_calculadora">Calculadora</string>
+    <string name="hint_numero">Ingrese un número</string>
+    <string name="btn_mas">+</string>
+    <string name="btn_menos">-</string>
 </resources>

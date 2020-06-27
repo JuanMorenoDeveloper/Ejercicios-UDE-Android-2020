@@ -1,6 +1,7 @@
 package uy.edu.ude.myapplication
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -24,5 +25,15 @@ class LoginInstrumentedTest {
         onView(withId(R.id.btnOk)).perform(click())
 
         onView(withId(R.id.tvNombre)).check(matches(withText("user")))
+    }
+
+    @Test
+    fun givenInvalidCredentials_whenLogin_thenShowErrorMsg() {
+        onView(withId(R.id.edNombre)).perform(typeText("user")).perform(closeSoftKeyboard())
+        onView(withId(R.id.edPassword)).perform(typeText("pass2")).perform(closeSoftKeyboard())
+
+        onView(withId(R.id.btnOk)).perform(click())//login
+
+        onView(withId(R.id.tvHello)).check(matches(withText("Usuario inválido")))
     }
 }

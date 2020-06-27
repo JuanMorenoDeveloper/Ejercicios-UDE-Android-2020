@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
                 goToWelcome(nombre)
             } else {
                 tvHello.text = "Usuario inválido"
-                edPassword.error = "Contraseña inválida"
+                //edPassword.error = "Contraseña inválida" /
+                // En test con robolectric produce error, ver https://github.com/robolectric/robolectric/issues/5345
                 Toast.makeText(
                     this,
                     "Usuario inválido",
