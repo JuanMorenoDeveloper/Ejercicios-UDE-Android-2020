@@ -48,7 +48,7 @@ class CalculadoraActivity() :
 
     fun tryDivide(): String {
         return if (n2 == 0) {
-            "El número 2 no puede ser 0"
+            getString(R.string.n2_eq_zero_error)
         } else {
             dividir().toString()
         }

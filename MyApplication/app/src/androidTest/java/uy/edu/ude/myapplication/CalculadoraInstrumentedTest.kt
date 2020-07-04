@@ -52,7 +52,7 @@ class CalculadoraInstrumentedTest {
         //Arrange - Preparación
         val n1 = "5"
         val n2 = "0"
-        val resultExpected = "El número 2 no puede ser 0"
+        val resultExpected = rule.activity.getString(R.string.n2_eq_zero_error)
         Espresso.onView(ViewMatchers.withId(R.id.edN1)).perform(ViewActions.typeText(n1))
         Espresso.onView(ViewMatchers.withId(R.id.edN2)).perform(ViewActions.typeText(n2))
 
