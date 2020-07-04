@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MVP App</string>
+    <string name="btn_ok">Login</string>
+    <string name="tv_welcome">Bienvenida</string>
+    <string name="user_invalid">Usuario inválido</string>
+</resources>
