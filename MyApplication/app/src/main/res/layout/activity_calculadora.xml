@@ -46,9 +46,16 @@
         android:text="@string/btn_menos"
         android:textSize="23sp" />
 
+    <Button
+        android:id="@+id/btnDividir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_dividir" />
+
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="23sp" />
+
 </LinearLayout>

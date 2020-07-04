@@ -6,4 +6,6 @@
     <string name="hint_numero">Ingrese un número</string>
     <string name="btn_mas">+</string>
     <string name="btn_menos">-</string>
+    <string name="btn_dividir">/</string>
+    <string name="n2_eq_zero_error">El número 2 no puede ser 0</string>
 </resources>
