@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun showMessage(msgId: Int) {
+        //List<String> list=new ArrayList<>();
         val mensaje = getString(msgId)
         tvHello.text = mensaje
         //edPassword.error = "Contraseña inválida" /
