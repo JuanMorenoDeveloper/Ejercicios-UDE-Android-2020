@@ -1,5 +1,6 @@
 package uy.edu.ude.backgroundtasks.logic
 
+import android.os.Looper
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
@@ -29,7 +30,7 @@ class TimerTask(
                     } catch (e: InterruptedException) {
                         Thread.currentThread().interrupt()
                     }
-                    val url = URL("https://gturnquist-quoters.cfapps.io/api/random")
+                    /*val url = URL("https://gturnquist-quoters.cfapps.io/api/random")
                     (url.openConnection() as? HttpURLConnection)?.run {
                         requestMethod = "GET"
                         setRequestProperty("Content-Type", "application/json; charset=utf-8")
@@ -41,7 +42,7 @@ class TimerTask(
                         }
                         Log.i("TimerTask", result.toString())
                     }
-                    view.incrementProgress(i)
+                    view.incrementProgress(i)*/
                 } else {
                     break
                 }
@@ -73,6 +74,7 @@ class TimerTask(
                         Log.i("TimerTask", result.toString())
                     }
                     view.incrementProgress(i)
+                    Log.i("TimerTask","doInBackground2 ${Looper.getMainLooper().isCurrentThread}  ")
                 } else {
                     break
                 }

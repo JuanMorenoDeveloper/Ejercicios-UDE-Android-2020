@@ -1,11 +1,15 @@
 package uy.edu.ude.backgroundtasks.ui
 
 import android.os.Bundle
+import android.os.Looper
+import android.util.Log
 import android.view.View.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_main_async.*
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import uy.edu.ude.backgroundtasks.R
 import uy.edu.ude.backgroundtasks.logic.TimerTask
 import java.util.concurrent.ExecutorService
@@ -28,14 +32,17 @@ class MainAsyncActivity : AppCompatActivity(), MainViewAsync {
             btnOk.visibility = GONE
             btnCancel.visibility = VISIBLE
             showBar()
-            //job = GlobalScope.launch(Dispatchers.Main) { task.doInBackground2() }
-            task.doInBackground()
+            job = lifecycleScope.launch {
+                task.doInBackground2()
+            }
+            //GlobalScope.launch(Dispatchers.Main) { task.doInBackground2() }
+            //task.doInBackground()
         }
         btnCancel.setOnClickListener {
             btnOk.visibility = VISIBLE
             btnCancel.visibility = GONE
-            task.stop()
-            //job.cancel()
+            //task.stop()
+            job.cancel()
             Toast.makeText(this, "Tarea cancelada", Toast.LENGTH_SHORT).show()
         }
     }
@@ -45,6 +52,7 @@ class MainAsyncActivity : AppCompatActivity(), MainViewAsync {
     }
 
     override fun incrementProgress(progress: Int) {
+        Log.i("MainAsyncActivity", "incrementProgress ${Looper.getMainLooper().isCurrentThread}  ")
         pbNumeric.progress = progress
     }
 
