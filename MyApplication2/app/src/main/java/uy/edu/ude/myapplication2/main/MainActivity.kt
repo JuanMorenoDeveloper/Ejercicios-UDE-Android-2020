@@ -6,17 +6,17 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import uy.edu.ude.myapplication2.MyApplication
 import uy.edu.ude.myapplication2.MyDatabase
 import uy.edu.ude.myapplication2.R
 import uy.edu.ude.myapplication2.main.presenter.DefaultMainPresenter
 import uy.edu.ude.myapplication2.main.presenter.MainPresenter
 import uy.edu.ude.myapplication2.main.view.MainView
-import uy.edu.ude.myapplication2.usecases.DefaultFillProgress
+import uy.edu.ude.myapplication2.usecases.DefaultCoroutineFillProgress
+import uy.edu.ude.myapplication2.usecases.ExecutorFillProgress
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), MainView {
@@ -33,7 +33,11 @@ class MainActivity : AppCompatActivity(), MainView {
         initUiComponents()
         myDatabase =
             MyDatabase(this, "MyApplication2", null, 1)
-        presenter = DefaultMainPresenter(this, DefaultFillProgress(myApplication.executor))
+        presenter = DefaultMainPresenter(
+            this,
+            ExecutorFillProgress(myApplication.executor),
+            DefaultCoroutineFillProgress()
+        )
         //control.set(true)
     }
 
@@ -56,15 +60,26 @@ class MainActivity : AppCompatActivity(), MainView {
         }*/
         //cargarDB()
         //pbProgreso.max = 500
-        presenter.start()
+
+        // Ejemplo con coroutine
+        job = lifecycleScope.launch {
+            presenter.startCoroutine()
+        }
+
+        /*Inicio ejemplo executor*/
+        //presenter.startThread()
+        /*Fin ejemplo executor*/
         btnIniciar.visibility = GONE
         btnCancelar.visibility = VISIBLE
     }
 
     private fun cancelar() {
-        presenter.setControl(false)
-        //stop()
-        //job.cancel()
+        /*Inicio ejemplo executor*/
+        //presenter.setControl(false)
+        /*Fin ejemplo executor*/
+        /*Inicio ejemplo coroutine*/
+        job.cancel()
+        /*Inicio ejemplo coroutine*/
         btnIniciar.visibility = VISIBLE
         btnCancelar.visibility = GONE
         Log.i("MainActivity", "Tarea Cancelada")

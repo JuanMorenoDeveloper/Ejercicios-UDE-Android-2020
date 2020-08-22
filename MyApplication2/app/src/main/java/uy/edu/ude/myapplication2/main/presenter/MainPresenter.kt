@@ -4,5 +4,6 @@ interface MainPresenter {
     fun setControl(estado: Boolean)
     fun getControl(): Boolean
     fun actualizarProgreso(progreso: Int)
-    fun start()
+    fun startThread()
+    suspend fun startCoroutine()
 }

@@ -3,7 +3,7 @@ package uy.edu.ude.myapplication2.usecases
 import uy.edu.ude.myapplication2.main.presenter.MainPresenter
 import java.util.concurrent.ExecutorService
 
-class DefaultFillProgress(
+class ExecutorFillProgress(
     private val executor: ExecutorService
 ) : FillProgress {
 

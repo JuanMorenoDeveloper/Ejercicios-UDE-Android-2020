@@ -1,10 +1,15 @@
 package uy.edu.ude.myapplication2.main.presenter
 
 import uy.edu.ude.myapplication2.main.view.MainView
+import uy.edu.ude.myapplication2.usecases.CoroutineFillProgress
 import uy.edu.ude.myapplication2.usecases.FillProgress
 import java.util.concurrent.atomic.AtomicBoolean
 
-class DefaultMainPresenter(private val view: MainView, private val fillProgress: FillProgress) :
+class DefaultMainPresenter(
+    private val view: MainView,
+    private val fillProgress: FillProgress,
+    private val fillProgressCoroutine: CoroutineFillProgress
+) :
     MainPresenter {
     private val control = AtomicBoolean(false)
 
@@ -20,8 +25,12 @@ class DefaultMainPresenter(private val view: MainView, private val fillProgress:
         view.actualizarProgreso(progreso)
     }
 
-    override fun start() {
+    override fun startThread() {
         fillProgress.doInBackground(this)
+    }
+
+    override suspend fun startCoroutine() {
+        fillProgressCoroutine.doInBackground(this)
     }
 
 }
