@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Rest Client Quote</string>
+    <string name="tv_type">Type</string>
+    <string name="tv_id">Id</string>
+    <string name="tv_quote">Quote</string>
+    <string name="btn_send">SEND</string>
+</resources>
