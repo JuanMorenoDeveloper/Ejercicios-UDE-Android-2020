@@ -30,7 +30,7 @@ class HttpUrlConnectionRobolectricTest {
             Response(2, "success", "With Boot you deploy everywhere you can find a JVM basically.")
         //act
 
-        val response = api.strToResponse(str)
+        val response = Converter().strToResponse(str)
 
         //assert
         assertThat(response).isEqualTo(responseExpected)
