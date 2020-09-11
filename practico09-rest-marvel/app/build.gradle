@@ -9,11 +9,12 @@ apply plugin: 'kotlin-kapt'
 def integrationTests = false
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "uy.edu.ude.restmarvel"
-        minSdkVersion 22
-        targetSdkVersion 28
+        minSdkVersion 23
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -29,7 +30,6 @@ android {
             includeAndroidResources = true
             returnDefaultValues = true
             all {
-                jacoco.includeNoLocationClasses = true
                 test {
                     filter {
                         if (integrationTests.toBoolean()) {
@@ -76,76 +76,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }
-// Static analysis
-def mainSrc = "$project.projectDir/src/main/java"
-def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-def debugTree = fileTree(dir: "$project.buildDir/intermediates/javac/debug", excludes: fileFilter) +
-        fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
-def configDir = "${project.rootDir}/config"
-def reportDir = "${project.buildDir}/reports"
 
-//gradlew detekt
-detekt {
-    toolVersion = "1.0.0"
-    input = files("src/main/java")
-    filters = ".*/resources/.*,.*/build/.*"
-    reports {
-        xml {
-            enabled = false
-        }
-        html {
-            enabled = true
-            destination = file("$reportDir/detekt.html")
-        }
-    }
-}
-
-//Jacoco
-apply plugin: 'jacoco'
-jacoco.toolVersion = '0.8.4'
-//gradlew jacocoTestReport
-task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-    sourceDirectories.setFrom(files([mainSrc]))
-    classDirectories.setFrom([debugTree])
-    executionData.setFrom(fileTree(dir: project.buildDir, includes: [
-            'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec'
-    ]))
-}
-//./gradlew jacocoTestCoverageVerification
-task jacocoTestCoverageVerification(type: JacocoCoverageVerification, dependsOn: 'jacocoTestReport') {
-    sourceDirectories.setFrom(files([mainSrc]))
-    classDirectories.setFrom([debugTree])
-    executionData.setFrom(files("${buildDir}/jacoco/testDebugUnitTest.exec"))
-    violationRules {
-        failOnViolation = true
-        rule {
-            limit {
-                minimum = 0.3
-            }
-        }
-    }
-}
-
-//Lint ./gradlew lint
-android {
-    lintOptions {
-        abortOnError false
-        xmlReport false
-        htmlReport true
-        lintConfig file("$configDir/lint.network_security_config")
-        htmlOutput file("$reportsDir/lint.html")
-    }
-}
-
-//gradlew ktlintCheck
-//gradlew ktlintFormat
-apply plugin: "org.jlleitschuh.gradle.ktlint"
-
-ktlint {
-    android = true
-    debug = true
-}
