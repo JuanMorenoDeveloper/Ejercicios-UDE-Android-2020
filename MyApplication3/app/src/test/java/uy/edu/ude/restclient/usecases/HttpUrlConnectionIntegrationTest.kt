@@ -31,7 +31,7 @@ class HttpUrlConnectionIntegrationTest {
     }
 
     @Test
-    fun whenGetQuoteRandom_getTypeSuccess() {
+    fun whenGetQuoteRandom_getTypeSuccess()  {
         GlobalScope.launch {
             //arrange
             val api: QuoteApi =
