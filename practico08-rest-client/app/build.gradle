@@ -37,8 +37,8 @@ android {
                             includeTestsMatching "*IntegrationTest"
                             includeTestsMatching "*InstrumentedTest"
                         } else {
-                            includeTestsMatching "*UnitTest"
-                            includeTestsMatching "*RobolectricTest"
+                            //includeTestsMatching "*UnitTest"
+                            //includeTestsMatching "*RobolectricTest"
                             exclude "*IntegrationTest"
                             exclude "*InstrumentedTest"
                         }
