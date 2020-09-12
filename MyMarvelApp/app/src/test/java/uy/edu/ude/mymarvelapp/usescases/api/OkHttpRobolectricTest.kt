@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,7 +16,7 @@ class OkHttpRobolectricTest {
 
     @Test
     fun givenCharacterId_whenGetCharacterById_getValidCharacter() {
-        GlobalScope.launch {
+        runBlocking {
             val api: MarvelApi =
                 OkHttpMarvelApi(
                     urlServer = "https://gateway.marvel.com/v1/public/characters",
