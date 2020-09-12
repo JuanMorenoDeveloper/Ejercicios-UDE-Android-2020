@@ -19,7 +19,7 @@ class CharacterConverter {
         val thumbnail = result.getJSONObject("thumbnail")
         val path = thumbnail.getString("path")
         val extension = thumbnail.getString("extension")
-        val thumbnailUrl = "$path/portrait_medium.$extension"
+        val thumbnailUrl = "$path/portrait_incredible.$extension".replace("http", "https")
         return Character(id, name, description, nrComics, thumbnailUrl)
     }
 }

@@ -60,8 +60,8 @@
 
     <ImageView
         android:id="@+id/ivCharacter"
-        android:layout_width="100px"
-        android:layout_height="150px"
+        android:layout_width="216px"
+        android:layout_height="324px"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
