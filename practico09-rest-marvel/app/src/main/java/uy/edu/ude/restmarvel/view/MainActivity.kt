@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     val url =
                         URL(
                             """
-                https://gateway.marvel.com/v1/public/characters/1009610&ts=$timestamp&apikey=$apiKey&hash=$hash
+                https://gateway.marvel.com/v1/public/characters/1009610?ts=$timestamp&apikey=$apiKey&hash=$hash
                 """
                         )
                     val client = OkHttpClient()
