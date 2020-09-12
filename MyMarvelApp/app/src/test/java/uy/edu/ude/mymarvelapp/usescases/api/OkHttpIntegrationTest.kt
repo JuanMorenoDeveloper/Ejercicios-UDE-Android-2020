@@ -12,7 +12,7 @@ import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.P])
-class OkHttpRobolectricTest {
+class OkHttpIntegrationTest {
 
     @Test
     fun givenCharacterId_whenGetCharacterById_getValidCharacter() {
