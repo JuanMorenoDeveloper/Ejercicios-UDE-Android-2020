@@ -1,6 +1,7 @@
 package uy.edu.ude.ejemplosqlite.repository
 
 import android.content.Context
+import android.os.Build
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -10,12 +11,14 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
 import uy.edu.ude.ejemplosqlite.entity.Usuario
 import uy.edu.ude.ejemplosqlite.persistence.AppDatabase
 import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
-class UsuarioDaoEspressoTest {
+@Config(sdk = [Build.VERSION_CODES.P])
+class UsuarioDaoRobolectricTest {
 
     private lateinit var usuarioDao: UsuarioDao
     private lateinit var db: AppDatabase
