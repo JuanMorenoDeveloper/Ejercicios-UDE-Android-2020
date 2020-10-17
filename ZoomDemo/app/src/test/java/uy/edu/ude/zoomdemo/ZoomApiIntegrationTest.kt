@@ -12,7 +12,7 @@ import java.io.IOException
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ZoomApiUnitTest {
+class ZoomApiIntegrationTest {
     @Test
     @Throws(IOException::class)
     fun givenAuthUser_whenGetUsuario_thenGetResponseOk() {
