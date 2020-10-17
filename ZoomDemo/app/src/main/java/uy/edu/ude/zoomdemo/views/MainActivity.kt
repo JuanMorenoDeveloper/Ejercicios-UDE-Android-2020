@@ -6,7 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 import uy.edu.ude.zoomdemo.R
-import uy.edu.ude.zoomdemo.entities.Usuario
+import uy.edu.ude.zoomdemo.entities.Credenciales
 import uy.edu.ude.zoomdemo.usescases.ClientZoomApi
 import uy.edu.ude.zoomdemo.usescases.ZoomApi
 
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        api = ClientZoomApi(Usuario("adm", "adm"), "https://zoomx.freeddns.org:8443/usuario")
+        api = ClientZoomApi(Credenciales("adm", "adm"), "https://zoomx.freeddns.org:8443/usuario")
         init()
     }
 

@@ -1,7 +1,7 @@
 package uy.edu.ude.zoomdemo.usescases
 
-import org.json.JSONObject
+import uy.edu.ude.zoomdemo.entities.Usuario
 
 interface ZoomApi {
-    suspend fun send(): JSONObject
+    suspend fun send(): Usuario
 }
